@@ -3,6 +3,7 @@ package br.com.erudio.data.dto;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 public class BookDTO extends RepresentationModel<BookDTO> implements Serializable {
@@ -11,7 +12,7 @@ public class BookDTO extends RepresentationModel<BookDTO> implements Serializabl
 
     private Long id;
     private String author;
-    private String launchDate;
+    private Date launchDate;
     private Double price;
     private String title;
 
@@ -33,11 +34,11 @@ public class BookDTO extends RepresentationModel<BookDTO> implements Serializabl
         this.author = author;
     }
 
-    public String getLaunchDate() {
+    public Date getLaunchDate() {
         return launchDate;
     }
 
-    public void setLaunchDate(String launchDate) {
+    public void setLaunchDate(Date launchDate) {
         this.launchDate = launchDate;
     }
 
