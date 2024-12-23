@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql:5.7.22
+    command: mysqld --default_authentication_plugin=mysql_native_password
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      MYSQL_DATABASE: wordpress
+    ports:
+      - "3308:3306"
+    networks:
+      - wordpress-network
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 127.0.0.1:80:80
+    volumes:
+      - ./config/php.conf.uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./wp-app:/var/www/html
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: docker
+    links:
+      - db
+    depends_on:
+      - db
+    networks:
+      - wordpress-network      
+networks: 
+    wordpress-network:
+        driver: bridge

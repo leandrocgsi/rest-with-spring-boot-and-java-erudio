@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql:5.7.22
+    command: mysqld --default_authentication_plugin=mysql_native_password
+    ports:
+      - "3308:3306"      
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 80:80
+    depends_on:
+      - db
