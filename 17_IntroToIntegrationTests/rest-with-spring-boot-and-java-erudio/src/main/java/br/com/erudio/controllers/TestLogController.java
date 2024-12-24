@@ -1,6 +1,5 @@
 package br.com.erudio.controllers;
 
-import br.com.erudio.services.PersonServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
