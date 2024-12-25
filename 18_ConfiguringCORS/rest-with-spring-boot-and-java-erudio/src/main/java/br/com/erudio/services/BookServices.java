@@ -1,4 +1,4 @@
-package br.com.erudio.unittests.services;
+package br.com.erudio.services;
 
 import br.com.erudio.controllers.BookController;
 import br.com.erudio.data.dto.BookDTO;

@@ -1,5 +1,7 @@
 server:
   port: 8888
+cors:
+  originPatterns: http://localhost:8080,http://localhost:3000,https://www.erudio.com.br
 spring:
   application:
     name: rest-with-spring-boot-and-java-erudio

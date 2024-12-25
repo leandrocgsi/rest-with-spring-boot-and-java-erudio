@@ -4,6 +4,7 @@ import br.com.erudio.data.dto.BookDTO;
 import br.com.erudio.exception.RequiredObjectIsNullException;
 import br.com.erudio.model.Book;
 import br.com.erudio.repository.BookRepository;
+import br.com.erudio.services.BookServices;
 import br.com.erudio.unittests.mapper.mocks.MockBook;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
