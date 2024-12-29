@@ -2,6 +2,8 @@ server:
   port: 8888
 cors:
   originPatterns: http://localhost:8080,http://localhost:3000,https://www.erudio.com.br
+file:
+  upload-dir: /Code/UploadDir
 spring:
   application:
     name: rest-with-spring-boot-and-java-erudio
@@ -14,6 +16,12 @@ spring:
       hibernate:
     show-sql: false
     open-in-view: false
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215 MB
 logging:
   level:
     root: INFO
