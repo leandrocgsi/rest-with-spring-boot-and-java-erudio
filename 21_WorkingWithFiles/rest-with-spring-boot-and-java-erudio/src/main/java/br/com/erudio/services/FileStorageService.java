@@ -1,7 +1,6 @@
 package br.com.erudio.services;
 
 import br.com.erudio.config.FileStorageConfig;
-import br.com.erudio.controllers.FileController;
 import br.com.erudio.exception.FileNotFoundException;
 import br.com.erudio.exception.FileStorageException;
 import org.slf4j.Logger;
