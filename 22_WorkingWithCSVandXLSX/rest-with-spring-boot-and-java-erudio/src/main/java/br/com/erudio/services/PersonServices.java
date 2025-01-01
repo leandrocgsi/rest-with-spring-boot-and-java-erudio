@@ -87,7 +87,7 @@ public class PersonServices {
         return dto;
     }
 
-    public List<PersonDTO> massCreation(MultipartFile file) throws Exception {
+    public List<PersonDTO> massCreation(MultipartFile file) {
         logger.info("Importing People from file!");
 
         if (file.isEmpty()) throw new BadRequestException("Please set a Valid File!");
@@ -178,6 +178,7 @@ public class PersonServices {
         dto.add(linkTo(methodOn(PersonController.class).findByName("", 1, 12, "asc")).withRel("findByName").withType("GET"));
         dto.add(linkTo(methodOn(PersonController.class).findById(dto.getId())).withSelfRel().withType("GET"));
         dto.add(linkTo(methodOn(PersonController.class).create(dto)).withRel("create").withType("POST"));
+        dto.add(linkTo(methodOn(PersonController.class)).slash("massCreation").withRel("massCreation").withType("POST"));
         dto.add(linkTo(methodOn(PersonController.class).update(dto)).withRel("update").withType("PUT"));
         dto.add(linkTo(methodOn(PersonController.class).disablePerson(dto.getId())).withRel("disable").withType("PATCH"));
         dto.add(linkTo(methodOn(PersonController.class).delete(dto.getId())).withRel("delete").withType("DELETE"));
