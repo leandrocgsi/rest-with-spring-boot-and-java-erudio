@@ -3,6 +3,7 @@
 	<property name="com.jaspersoft.studio.data.sql.tables" value="cmVzdF93aXRoX3NwcmluZ19ib290X2VydWRpby5wZXJzb24gQVMgLDEwNiwyOCxjZTkzNmU3Zi0x&#xa;ZjRlLTQ1NTQtOGE4My0wMDI3ODEzZmY5MGQ7"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL Connection"/>
 	<parameter name="PERSON_ID" class="java.lang.Long"/>
+	<parameter name="SUB_REPORT_DATA_SOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<query language="SQL"><![CDATA[SELECT id,
 	CONCAT(first_name, ' ', last_name) AS name,
 	address,
@@ -49,7 +50,7 @@ WHERE
 		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
 	</field>
 	<background splitType="Stretch"/>
-	<title height="153" splitType="Stretch">
+	<title height="145" splitType="Stretch">
 		<element kind="image" uuid="ea3111fb-92c5-4b6e-974b-6a67fdd7f08f" x="25" y="10" width="120" height="40">
 			<expression><![CDATA["https://raw.githubusercontent.com/leandrocgsi/blog-images/refs/heads/main/logo_with_text.png"]]></expression>
 		</element>
@@ -95,15 +96,15 @@ WHERE
 		</element>
 	</title>
 	<detail>
-		<band height="70" splitType="Stretch">
-			<element kind="subreport" uuid="22c7bc68-7da1-4f8c-baee-d74b39a1f69a" x="10" y="0" width="533" height="70">
+		<band height="60" splitType="Stretch">
+			<element kind="subreport" uuid="2b8bc6ff-5a36-4038-8165-433d436381f1" x="21" y="0" width="523" height="60">
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<expression><![CDATA["file:/D:/Code/Java/rest-with-spring-boot-and-java-erudio/23_WorkingWithJasperReports/rest-with-spring-boot-and-java-erudio/src/main/resources/templates/books.jasper"]]></expression>
-				<parameter name="SUB_REPORT_DATA_SOURCE">
-					<expression><![CDATA[]]></expression>
-				</parameter>
+				<expression><![CDATA["books.jasper"]]></expression>
 				<parameter name="PERSON_ID">
 					<expression><![CDATA[$P{PERSON_ID}]]></expression>
+				</parameter>
+				<parameter name="SUB_REPORT_DATA_SOURCE">
+					<expression><![CDATA[$P{SUB_REPORT_DATA_SOURCE}]]></expression>
 				</parameter>
 			</element>
 		</band>
