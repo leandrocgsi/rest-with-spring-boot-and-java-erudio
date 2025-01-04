@@ -1,0 +1,105 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="person" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="305d9d5a-1d05-49c7-a521-0d7e7430a41d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="cmVzdF93aXRoX3NwcmluZ19ib290X2VydWRpby5wZXJzb24gQVMgLDEwNiwyOCxjZTkzNmU3Zi0x&#xa;ZjRlLTQ1NTQtOGE4My0wMDI3ODEzZmY5MGQ7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL Connection"/>
+	<parameter name="PERSON_ID" class="java.lang.Long"/>
+	<query language="SQL"><![CDATA[SELECT id,
+	CONCAT(first_name, ' ', last_name) AS name,
+	address,
+	gender,
+	enabled,
+	wikipedia_profile_url AS profileUrl,
+	photo_url AS photoUrl
+FROM rest_with_spring_boot_erudio.person
+WHERE
+   id = $P{PERSON_ID}
+]]></query>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address"/>
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="gender" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="gender"/>
+		<property name="com.jaspersoft.studio.field.label" value="gender"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="enabled" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="enabled"/>
+		<property name="com.jaspersoft.studio.field.label" value="enabled"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="profileUrl" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="wikipedia_profile_url"/>
+		<property name="com.jaspersoft.studio.field.label" value="profileUrl"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<field name="photoUrl" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="photo_url"/>
+		<property name="com.jaspersoft.studio.field.label" value="photoUrl"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="person"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="153" splitType="Stretch">
+		<element kind="image" uuid="ea3111fb-92c5-4b6e-974b-6a67fdd7f08f" x="25" y="10" width="120" height="40">
+			<expression><![CDATA["https://raw.githubusercontent.com/leandrocgsi/blog-images/refs/heads/main/logo_with_text.png"]]></expression>
+		</element>
+		<element kind="staticText" uuid="89824a15-282d-4678-be39-f4d43c17cbb2" x="21" y="50" width="40" height="30" fontSize="12.0" vTextAlign="Middle">
+			<text><![CDATA[Code:]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64a0db63-4a8e-43d2-a825-cdecb37b0ab9"/>
+		</element>
+		<element kind="textField" uuid="50acbba7-4934-4a91-8787-58f84c9b0a63" x="61" y="50" width="40" height="30" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{id}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64a0db63-4a8e-43d2-a825-cdecb37b0ab9"/>
+		</element>
+		<element kind="staticText" uuid="728f1f6b-3f61-4e44-a775-3fd8678023ec" x="21" y="80" width="40" height="30" fontSize="12.0" vTextAlign="Middle">
+			<text><![CDATA[Name:]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6d1d5e4-77d1-4c19-9d88-37c0d94be44d"/>
+		</element>
+		<element kind="textField" uuid="537393a4-d753-4c89-b915-ebf4685d4574" x="61" y="80" width="160" height="30" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{name}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6d1d5e4-77d1-4c19-9d88-37c0d94be44d"/>
+		</element>
+		<element kind="staticText" uuid="c1fffdc1-6b3e-45ee-a77e-ca375875b024" x="101" y="50" width="50" height="30" fontSize="12.0" vTextAlign="Middle">
+			<text><![CDATA[Gender:]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="338beb9d-6feb-41b9-8ac8-e7aecf2a69ce"/>
+		</element>
+		<element kind="textField" uuid="cdcc108f-b29a-4e83-90c4-81ad84d96c2d" x="151" y="50" width="70" height="30" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{gender}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="338beb9d-6feb-41b9-8ac8-e7aecf2a69ce"/>
+		</element>
+		<element kind="staticText" uuid="9d9b833c-9179-4860-bcdf-81f5b6731590" x="21" y="110" width="50" height="30" fontSize="12.0" vTextAlign="Middle">
+			<text><![CDATA[Address:]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b424ab68-3581-4e7f-a949-ae49a6ef93b8"/>
+		</element>
+		<element kind="textField" uuid="1e71a9fc-8da2-4c03-bcab-ee4236b9a112" x="71" y="110" width="150" height="30" fontSize="12.0" vTextAlign="Middle">
+			<expression><![CDATA[$F{address}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b424ab68-3581-4e7f-a949-ae49a6ef93b8"/>
+		</element>
+		<element kind="image" uuid="68beadc3-f4e1-49e5-a922-5e0d4897f308" x="439" y="0" width="110" height="140">
+			<expression><![CDATA[$F{photoUrl}]]></expression>
+		</element>
+		<element kind="component" uuid="6bc77a91-31b1-40bb-a0d4-36370fbcf0f5" x="238" y="-23" width="157" height="168">
+			<component kind="barcode4j:QRCode">
+				<codeExpression><![CDATA[$F{photoUrl}]]></codeExpression>
+			</component>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="61" splitType="Stretch"/>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
