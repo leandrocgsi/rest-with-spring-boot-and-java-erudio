@@ -4,6 +4,7 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL Connection"/>
 	<parameter name="PERSON_ID" class="java.lang.Long"/>
 	<parameter name="SUB_REPORT_DATA_SOURCE" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="QR_CODEIMAGE" class="java.io.InputStream"/>
 	<query language="SQL"><![CDATA[SELECT id,
 	CONCAT(first_name, ' ', last_name) AS name,
 	address,
@@ -89,15 +90,13 @@ WHERE
 		<element kind="image" uuid="68beadc3-f4e1-49e5-a922-5e0d4897f308" x="439" y="0" width="110" height="140">
 			<expression><![CDATA[$F{photoUrl}]]></expression>
 		</element>
-		<element kind="component" uuid="6bc77a91-31b1-40bb-a0d4-36370fbcf0f5" x="238" y="-23" width="157" height="168">
-			<component kind="barcode4j:QRCode">
-				<codeExpression><![CDATA[$F{photoUrl}]]></codeExpression>
-			</component>
+		<element kind="image" uuid="0d5cc007-cb93-42a4-a23b-400c166126fe" x="230" y="0" width="150" height="140">
+			<expression><![CDATA[$P{QR_CODEIMAGE}]]></expression>
 		</element>
 	</title>
 	<detail>
 		<band height="60" splitType="Stretch">
-			<element kind="subreport" uuid="2b8bc6ff-5a36-4038-8165-433d436381f1" x="21" y="0" width="523" height="60">
+			<element kind="subreport" uuid="2b8bc6ff-5a36-4038-8165-433d436381f1" x="10" y="0" width="534" height="60">
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<expression><![CDATA["books.jasper"]]></expression>
 				<parameter name="PERSON_ID">
