@@ -62,9 +62,12 @@ public class PdfExporter implements FileExporter {
 
         JRBeanCollectionDataSource subDataSource = new JRBeanCollectionDataSource(person.getBooks());
 
+        String path = getClass().getResource("/templates/books.jasper").getPath();
+
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("SUB_REPORT_DATA_SOURCE", subDataSource);
         parameters.put("BOOK_SUB_REPORT", subReport);
+        parameters.put("SUB_REPORT_DIR", path);
         parameters.put("QR_CODEIMAGE", qrCodeStream);
 
         JRBeanCollectionDataSource mainDataSource = new JRBeanCollectionDataSource(Collections.singletonList(person));
