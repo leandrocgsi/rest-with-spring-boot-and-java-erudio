@@ -53,15 +53,15 @@ WHERE
 		<element kind="image" uuid="ea3111fb-92c5-4b6e-974b-6a67fdd7f08f" x="25" y="10" width="120" height="40">
 			<expression><![CDATA["https://raw.githubusercontent.com/leandrocgsi/blog-images/refs/heads/main/logo_with_text.png"]]></expression>
 		</element>
-		<element kind="staticText" uuid="89824a15-282d-4678-be39-f4d43c17cbb2" x="21" y="50" width="40" height="30" fontSize="12.0" vTextAlign="Middle">
+		<element kind="staticText" uuid="89824a15-282d-4678-be39-f4d43c17cbb2" x="21" y="50" width="40" height="30" fontSize="12.0" bold="true" vTextAlign="Middle">
 			<text><![CDATA[Code:]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64a0db63-4a8e-43d2-a825-cdecb37b0ab9"/>
 		</element>
-		<element kind="textField" uuid="50acbba7-4934-4a91-8787-58f84c9b0a63" x="61" y="50" width="40" height="30" fontSize="12.0" vTextAlign="Middle">
+		<element kind="textField" uuid="50acbba7-4934-4a91-8787-58f84c9b0a63" x="61" y="50" width="40" height="30" fontSize="12.0" bold="false" vTextAlign="Middle">
 			<expression><![CDATA[$F{id}]]></expression>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="64a0db63-4a8e-43d2-a825-cdecb37b0ab9"/>
 		</element>
-		<element kind="staticText" uuid="728f1f6b-3f61-4e44-a775-3fd8678023ec" x="21" y="80" width="40" height="30" fontSize="12.0" vTextAlign="Middle">
+		<element kind="staticText" uuid="728f1f6b-3f61-4e44-a775-3fd8678023ec" x="21" y="80" width="40" height="30" fontSize="12.0" bold="true" vTextAlign="Middle">
 			<text><![CDATA[Name:]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6d1d5e4-77d1-4c19-9d88-37c0d94be44d"/>
 		</element>
@@ -69,7 +69,7 @@ WHERE
 			<expression><![CDATA[$F{name}]]></expression>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f6d1d5e4-77d1-4c19-9d88-37c0d94be44d"/>
 		</element>
-		<element kind="staticText" uuid="c1fffdc1-6b3e-45ee-a77e-ca375875b024" x="101" y="50" width="50" height="30" fontSize="12.0" vTextAlign="Middle">
+		<element kind="staticText" uuid="c1fffdc1-6b3e-45ee-a77e-ca375875b024" x="101" y="50" width="50" height="30" fontSize="12.0" bold="true" vTextAlign="Middle">
 			<text><![CDATA[Gender:]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="338beb9d-6feb-41b9-8ac8-e7aecf2a69ce"/>
 		</element>
@@ -77,7 +77,7 @@ WHERE
 			<expression><![CDATA[$F{gender}]]></expression>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="338beb9d-6feb-41b9-8ac8-e7aecf2a69ce"/>
 		</element>
-		<element kind="staticText" uuid="9d9b833c-9179-4860-bcdf-81f5b6731590" x="21" y="110" width="50" height="30" fontSize="12.0" vTextAlign="Middle">
+		<element kind="staticText" uuid="9d9b833c-9179-4860-bcdf-81f5b6731590" x="21" y="110" width="50" height="30" fontSize="12.0" bold="true" vTextAlign="Middle">
 			<text><![CDATA[Address:]]></text>
 			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b424ab68-3581-4e7f-a949-ae49a6ef93b8"/>
 		</element>
@@ -94,12 +94,32 @@ WHERE
 			</component>
 		</element>
 	</title>
-	<pageHeader height="35" splitType="Stretch"/>
-	<columnHeader height="61" splitType="Stretch"/>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="70" splitType="Stretch">
+			<element kind="subreport" uuid="22c7bc68-7da1-4f8c-baee-d74b39a1f69a" x="10" y="0" width="533" height="70">
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<expression><![CDATA["file:/D:/Code/Java/rest-with-spring-boot-and-java-erudio/23_WorkingWithJasperReports/rest-with-spring-boot-and-java-erudio/src/main/resources/templates/books.jasper"]]></expression>
+				<parameter name="SUB_REPORT_DATA_SOURCE">
+					<expression><![CDATA[]]></expression>
+				</parameter>
+				<parameter name="PERSON_ID">
+					<expression><![CDATA[$P{PERSON_ID}]]></expression>
+				</parameter>
+			</element>
+		</band>
 	</detail>
-	<columnFooter height="45" splitType="Stretch"/>
-	<pageFooter height="54" splitType="Stretch"/>
-	<summary height="42" splitType="Stretch"/>
+	<pageFooter height="60" splitType="Stretch">
+		<element kind="textField" uuid="b9d75451-701c-433b-b5ba-26fccf7e6ae3" x="380" y="30" width="100" height="30" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="28b82819-ce28-4a29-85bb-4e4402d0a937" x="480" y="30" width="70" height="30" evaluationTime="Report" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[" of " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="da61c710-a69e-4f5f-a864-d6900ea10ea1" x="20" y="30" width="140" height="30" pattern="MMMMM dd, yyyy" vTextAlign="Middle">
+			<expression><![CDATA[new java.text.SimpleDateFormat("d MMMM yyyy", java.util.Locale.ENGLISH).format(new java.util.Date())]]></expression>
+		</element>
+		<element kind="staticText" uuid="63565d27-b4e6-43a8-bae1-0c87ade9ca36" x="20" y="0" width="524" height="30" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[© Copyright - Erudio Training - CNPJ: 34.523.711/0001-62]]></text>
+		</element>
+	</pageFooter>
 </jasperReport>
