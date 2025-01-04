@@ -98,7 +98,7 @@ WHERE
 	<detail>
 		<band height="60" splitType="Stretch">
 			<element kind="subreport" uuid="2b8bc6ff-5a36-4038-8165-433d436381f1" x="10" y="0" width="534" height="60">
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<dataSourceExpression><![CDATA[$P{SUB_REPORT_DATA_SOURCE}]]></dataSourceExpression>
 				<expression><![CDATA[$P{SUB_REPORT_DIR}]]></expression>
 				<parameter name="PERSON_ID">
 					<expression><![CDATA[$P{PERSON_ID}]]></expression>
