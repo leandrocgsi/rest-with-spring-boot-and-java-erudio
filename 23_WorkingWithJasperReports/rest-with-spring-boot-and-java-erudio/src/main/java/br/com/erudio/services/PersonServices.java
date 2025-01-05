@@ -9,8 +9,7 @@ import br.com.erudio.exception.ResourceNotFoundException;
 
 import static br.com.erudio.mapper.ObjectMapper.parseObject;
 
-import br.com.erudio.file.exporter.MediaTypes;
-import br.com.erudio.file.exporter.contract.FileExporter;
+import br.com.erudio.file.exporter.contract.PersonExporter;
 import br.com.erudio.file.exporter.factory.FileExporterFactory;
 import br.com.erudio.file.importer.contract.FileImporter;
 import br.com.erudio.file.importer.factory.FileImporterFactory;
@@ -34,7 +33,6 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
@@ -81,8 +79,8 @@ public class PersonServices {
             .getContent();
 
         try {
-            FileExporter exporter = this.exporter.getExporter(acceptHeader);
-            return exporter.exportFile(people);
+            PersonExporter exporter = this.exporter.getExporter(acceptHeader);
+            return exporter.exportPeople(people);
         } catch (Exception e) {
             throw new RuntimeException("Error during file export!", e);
         }
@@ -96,7 +94,7 @@ public class PersonServices {
             .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 
         try {
-            FileExporter exporter = this.exporter.getExporter(acceptHeader);
+            PersonExporter exporter = this.exporter.getExporter(acceptHeader);
             return exporter.exportPerson(person);
         } catch (Exception e) {
             throw new RuntimeException("Error during file export!", e);

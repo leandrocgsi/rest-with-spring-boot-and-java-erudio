@@ -153,7 +153,7 @@ class BookControllerXmlTest extends AbstractIntegrationTest {
 
         var content = given(specification)
                 .accept(MediaType.APPLICATION_XML_VALUE)
-                .queryParams("page", 0 , "size", 12, "direction", "asc")
+                .queryParams("page", 9 , "size", 12, "direction", "asc")
                 .when()
                 .get()
                 .then()
@@ -173,20 +173,20 @@ class BookControllerXmlTest extends AbstractIntegrationTest {
         assertNotNull(bookOne.getAuthor());
         assertNotNull(bookOne.getPrice());
         assertTrue(bookOne.getId() > 0);
-        assertEquals("Big Data: como extrair volume, variedade, velocidade e valor da avalanche de informação cotidiana", bookOne.getTitle());
-        assertEquals("Viktor Mayer-Schonberger e Kenneth Kukier", bookOne.getAuthor());
-        assertEquals(54.00, bookOne.getPrice());
+        assertEquals("The Art of Agile Development", bookOne.getTitle());
+        assertEquals("James Shore e Shane Warden", bookOne.getAuthor());
+        assertEquals(97.21, bookOne.getPrice());
 
-        BookDTO foundBookFive = books.get(4);
+        BookDTO foundBookSeven = books.get(7);
 
-        assertNotNull(foundBookFive.getId());
-        assertNotNull(foundBookFive.getTitle());
-        assertNotNull(foundBookFive.getAuthor());
-        assertNotNull(foundBookFive.getPrice());
-        assertTrue(foundBookFive.getId() > 0);
-        assertEquals("Domain Driven Design", foundBookFive.getTitle());
-        assertEquals("Eric Evans", foundBookFive.getAuthor());
-        assertEquals(92.00, foundBookFive.getPrice());
+        assertNotNull(foundBookSeven.getId());
+        assertNotNull(foundBookSeven.getTitle());
+        assertNotNull(foundBookSeven.getAuthor());
+        assertNotNull(foundBookSeven.getPrice());
+        assertTrue(foundBookSeven.getId() > 0);
+        assertEquals("The Art of Computer Programming, Volume 1: Fundamental Algorithms", foundBookSeven.getTitle());
+        assertEquals("Donald E. Knuth", foundBookSeven.getAuthor());
+        assertEquals(139.69, foundBookSeven.getPrice());
     }
 
     private void mockBook() {

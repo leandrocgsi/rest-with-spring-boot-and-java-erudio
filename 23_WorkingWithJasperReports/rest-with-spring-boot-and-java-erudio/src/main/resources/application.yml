@@ -15,7 +15,7 @@ spring:
       ddl-auto: none
     properties:
       hibernate:
-    show-sql: false
+    show-sql: true
     open-in-view: false
   servlet:
     multipart:
