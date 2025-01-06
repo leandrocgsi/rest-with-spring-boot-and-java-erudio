@@ -1,0 +1,45 @@
+server:
+  port: 8888
+cors:
+  originPatterns: http://localhost:8080,http://localhost:3000,https://www.erudio.com.br
+file:
+  upload-dir: /Code/UploadDir
+email:
+  subject: "Default Subject"
+  message: "Default Message"
+spring:
+  application:
+    name: rest-with-spring-boot-and-java-erudio
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+    show-sql: false
+    open-in-view: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enabled: true
+      mail.smtp.starttls.required: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215 MB
+logging:
+  level:
+    root: INFO
+    # root: WARN
+    # br.com.erudio: DEBUG
+spring-doc:
+  paths-to-match: /api/**/v1/**
+  swagger-ui:
+    use-root-path: true
