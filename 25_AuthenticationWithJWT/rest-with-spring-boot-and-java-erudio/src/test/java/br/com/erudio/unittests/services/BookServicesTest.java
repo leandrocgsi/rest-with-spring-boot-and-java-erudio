@@ -1,15 +1,12 @@
 package br.com.erudio.unittests.services;
 
 import br.com.erudio.data.dto.BookDTO;
-import br.com.erudio.data.dto.BookDTO;
 import br.com.erudio.exception.RequiredObjectIsNullException;
 import br.com.erudio.model.Book;
-import br.com.erudio.model.Book;
 import br.com.erudio.repository.BookRepository;
-import br.com.erudio.services.BookServices;
+import br.com.erudio.services.BookService;
 import br.com.erudio.unittests.mapper.mocks.MockBook;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +23,6 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedModel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -41,7 +37,7 @@ class BookServicesTest {
     MockBook input;
 
     @InjectMocks
-    private BookServices service;
+    private BookService service;
 
     @Mock
     BookRepository repository;

@@ -4,7 +4,7 @@ import br.com.erudio.data.dto.PersonDTO;
 import br.com.erudio.exception.RequiredObjectIsNullException;
 import br.com.erudio.model.Person;
 import br.com.erudio.repository.PersonRepository;
-import br.com.erudio.services.PersonServices;
+import br.com.erudio.services.PersonService;
 import br.com.erudio.unittests.mapper.mocks.MockPerson;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -38,7 +38,7 @@ class PersonServicesTest {
     MockPerson input;
 
     @InjectMocks
-    private PersonServices service;
+    private PersonService service;
 
     @Mock
     PersonRepository repository;

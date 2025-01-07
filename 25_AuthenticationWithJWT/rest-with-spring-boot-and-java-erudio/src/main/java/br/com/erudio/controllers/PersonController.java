@@ -3,7 +3,7 @@ package br.com.erudio.controllers;
 import br.com.erudio.controllers.docs.PersonControllerDocs;
 import br.com.erudio.data.dto.PersonDTO;
 import br.com.erudio.file.exporter.MediaTypes;
-import br.com.erudio.services.PersonServices;
+import br.com.erudio.services.PersonService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import java.util.Map;
 public class PersonController implements PersonControllerDocs {
 
     @Autowired
-    private PersonServices service;
+    private PersonService service;
 
     @GetMapping(produces = {
             MediaType.APPLICATION_JSON_VALUE,
