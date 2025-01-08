@@ -42,11 +42,13 @@ spring:
       max-request-size: 215 MB
 logging:
   level:
-    root: TRACE
+    root: INFO
     # net.sf.jasperreports.engine.*: TRACE
     # root: WARN
     # br.com.erudio: DEBUG
 spring-doc:
-  paths-to-match: /api/**/v1/**
+  paths-to-match:
+    - /auth/**
+    - /api/**/v1/**
   swagger-ui:
     use-root-path: true
