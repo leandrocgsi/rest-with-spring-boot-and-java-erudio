@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +22,7 @@ public class AuthController {
 
     @Operation(summary = "Authenticates an user and returns a token")
     @PostMapping("/signin")
-    public ResponseEntity<?> signin(@RequestBody AccountCredentialsDTO credentials) {
+    public ResponseEntity<?> signin(AccountCredentialsDTO credentials) {
         if (credentialsIsInvalid(credentials))return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid client request!");
         var token = service.signIn(credentials);
 
