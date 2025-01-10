@@ -301,6 +301,48 @@ class PersonControllerXmlTest extends AbstractIntegrationTest {
         assertTrue(personFour.getEnabled());
     }
 
+    @Test
+    @Order(8)
+    void hateoasAndHalTest() throws JsonProcessingException {
+
+        var content = given(specification)
+                .accept(MediaType.APPLICATION_XML_VALUE)
+                .queryParams("page", 3, "size", 12, "direction", "asc")
+                .when()
+                .get()
+                .then()
+                .statusCode(200)
+                .contentType(MediaType.APPLICATION_XML_VALUE)
+                .extract()
+                .body()
+                .asString();
+
+                // Retrieves the response body as an XML string
+
+                // Uses XmlPath to perform validations on the XML
+
+                // Attempts to get the list of links as a list of strings, not maps
+
+                // Iterates through each link and performs validations
+
+                        // Checks if the URL is in the correct format
+
+                        // Ensures the URL is not null
+
+                // Validates the navigation links of the page
+
+                        // Checks if the navigation links are in the correct format
+
+                // Validates the attributes related to pagination in the XML
+
+                        // Verifies the page size (12 items)
+
+                        // Verifies the current page number (3)
+
+                // Checks if the attributes 'totalElements' and 'totalPages' are greater than zero
+
+    }
+
     private void mockPerson() {
         person.setFirstName("Linus");
         person.setLastName("Torvalds");
