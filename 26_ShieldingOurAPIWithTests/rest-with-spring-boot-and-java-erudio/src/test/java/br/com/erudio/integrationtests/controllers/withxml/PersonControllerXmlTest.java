@@ -354,10 +354,10 @@ class PersonControllerXmlTest extends AbstractIntegrationTest {
         String number = xmlPath.getString("PagedModel.page.number");
 
         // Verifies the page size (12 items)
-        assertThat(size, is(12));
+        assertThat(Integer.parseInt(size), is(12));
 
         // Verifies the current page number (3)
-        assertThat(number, is(3));
+        assertThat(Integer.parseInt(number), is(3));
 
         // Checks if the attributes 'totalElements' and 'totalPages' are greater than zero
         assertTrue("totalElements should be greater than 0", Integer.parseInt(totalElements) > 0);
