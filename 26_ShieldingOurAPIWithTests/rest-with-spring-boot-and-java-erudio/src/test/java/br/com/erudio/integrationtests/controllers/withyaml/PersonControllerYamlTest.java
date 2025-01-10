@@ -234,7 +234,6 @@ class PersonControllerYamlTest extends AbstractIntegrationTest {
                 .statusCode(204);
     }
 
-
     @Test
     @Order(6)
     void findAllTest() throws JsonProcessingException {
@@ -316,6 +315,56 @@ class PersonControllerYamlTest extends AbstractIntegrationTest {
         assertEquals("96 Mosinee Parkway", personFour.getAddress());
         assertEquals("Male", personFour.getGender());
         assertTrue(personFour.getEnabled());
+    }
+
+    @Test
+    @Order(6)
+    void hateoasAndHalTest() throws JsonProcessingException {
+
+        var response = given(specification)
+                .accept(MediaType.APPLICATION_YAML_VALUE)
+                .queryParams("page", 3, "size", 12, "direction", "asc")
+                .when()
+                .get()
+                .then()
+                .statusCode(200)
+                .contentType(MediaType.APPLICATION_YAML_VALUE)
+                .extract()
+                .body()
+                .as(PagedModelPerson.class, objectMapper);
+
+                // Retrieves the response body as a YAML string
+
+        // Uses SnakeYAML to parse the YAML
+
+        // Validates the content
+
+        // Iterates through each person in the content
+
+                // Iterates through each link in the person's links
+
+                // Checks if the link has the expected attributes
+
+                // Validates the format of the link
+
+        // Validates pagination attributes
+
+        // Verifies the page number
+
+        // Verifies the page size
+
+        // Validates the total number of elements and pages
+
+        // Checks if total elements are present and valid
+
+        // Checks if total pages are present and valid
+
+        // Validates the navigation links of the page
+
+                // Checks if the page link contains the href attribute
+
+                // Validates the format of the page link URL
+
     }
 
     private void mockPerson() {
