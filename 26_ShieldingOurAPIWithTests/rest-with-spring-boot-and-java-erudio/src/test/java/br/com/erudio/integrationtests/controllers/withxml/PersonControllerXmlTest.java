@@ -13,6 +13,8 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
+import io.restassured.path.xml.XmlPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +24,8 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -305,7 +309,7 @@ class PersonControllerXmlTest extends AbstractIntegrationTest {
     @Order(8)
     void hateoasAndHalTest() throws JsonProcessingException {
 
-        var content = given(specification)
+        Response response = (Response) given(specification)
                 .accept(MediaType.APPLICATION_XML_VALUE)
                 .queryParams("page", 3, "size", 12, "direction", "asc")
                 .when()
@@ -314,33 +318,50 @@ class PersonControllerXmlTest extends AbstractIntegrationTest {
                 .statusCode(200)
                 .contentType(MediaType.APPLICATION_XML_VALUE)
                 .extract()
-                .body()
-                .asString();
+                .body();
 
-                // Retrieves the response body as an XML string
+        // Retrieves the response body as an XML string
+        String xml = response.getBody().asString();
 
-                // Uses XmlPath to perform validations on the XML
+        // Uses XmlPath to perform validations on the XML
+        XmlPath xmlPath = new XmlPath(xml);
 
-                // Attempts to get the list of links as a list of strings, not maps
+        // Attempts to get the list of links as a list of strings, not maps
+        List<String> peopleLinks = xmlPath.getList("PagedModel.content.content.links.href");
 
-                // Iterates through each link and performs validations
+        // Iterates through each link and performs validations
+        for (String link : peopleLinks) {
+            // Checks if the URL is in the correct format
+            assertThat("HATEOAS/HAL link " + link + " has an invalid URL", link, matchesPattern("https?://.+/api/person/v1.*"));
 
-                        // Checks if the URL is in the correct format
+            // Ensures the URL is not null
+            assertThat("HATEOAS/HAL link " + link + " has a null URL", notNullValue());
+        }
 
-                        // Ensures the URL is not null
+        // Validates the navigation links of the page
+        List<String> pageLinks = xmlPath.getList("PagedModel.links.href");
+        for (String pageLink: pageLinks) {
+            // Checks if the navigation links are in the correct format
+            assertThat("HATEOAS/HAL pageLink " + pageLink + " has an invalid URL", pageLink, matchesPattern("https?://.+/api/person/v1.*"));
 
-                // Validates the navigation links of the page
+            // Ensures the URL is not null
+            assertThat("HATEOAS/HAL pageLink " + pageLink + " has a null URL", notNullValue());
+        }
+        // Validates the attributes related to pagination in the XML
+        String size = xmlPath.getString("PagedModel.page.size");
+        String totalElements = xmlPath.getString("PagedModel.page.totalElements");
+        String totalPages = xmlPath.getString("PagedModel.page.totalPages");
+        String number = xmlPath.getString("PagedModel.page.number");
 
-                        // Checks if the navigation links are in the correct format
+        // Verifies the page size (12 items)
+        assertThat(size, is(12));
 
-                // Validates the attributes related to pagination in the XML
+        // Verifies the current page number (3)
+        assertThat(number, is(3));
 
-                        // Verifies the page size (12 items)
-
-                        // Verifies the current page number (3)
-
-                // Checks if the attributes 'totalElements' and 'totalPages' are greater than zero
-
+        // Checks if the attributes 'totalElements' and 'totalPages' are greater than zero
+        assertTrue("totalElements should be greater than 0", Integer.parseInt(totalElements) > 0);
+        assertTrue("totalPages should be greater than 0", Integer.parseInt(totalPages) > 0);
     }
 
     private void mockPerson() {
