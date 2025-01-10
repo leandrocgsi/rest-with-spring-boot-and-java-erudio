@@ -15,16 +15,22 @@ import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.yaml.snakeyaml.Yaml;
 
 import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -321,7 +327,7 @@ class PersonControllerYamlTest extends AbstractIntegrationTest {
     @Order(6)
     void hateoasAndHalTest() throws JsonProcessingException {
 
-        var response = given(specification)
+        Response response = given(specification)
                 .accept(MediaType.APPLICATION_YAML_VALUE)
                 .queryParams("page", 3, "size", 12, "direction", "asc")
                 .when()
@@ -330,41 +336,56 @@ class PersonControllerYamlTest extends AbstractIntegrationTest {
                 .statusCode(200)
                 .contentType(MediaType.APPLICATION_YAML_VALUE)
                 .extract()
-                .body()
-                .as(PagedModelPerson.class, objectMapper);
+                .response();
 
-                // Retrieves the response body as a YAML string
+        // Retrieves the response body as a YAML string
+        String yaml = response.getBody().asString();
 
         // Uses SnakeYAML to parse the YAML
+        Yaml yamlParser = new Yaml();
+        Map<String, Object> parsedYaml = yamlParser.load(yaml);
 
         // Validates the content
+        List<Map<String, Object>> content = (List<Map<String, Object>>) parsedYaml.get("content");
 
         // Iterates through each person in the content
+        for (Map<String, Object> person: content) {
 
-                // Iterates through each link in the person's links
-
+            List<Map<String, String>> links = (List<Map<String, String>>) person.get("links");
+            // Iterates through each link in the person's links
+            for (Map<String, String> link: links) {
                 // Checks if the link has the expected attributes
+                assertThat("HATEOAS/HAL link rel is missing", link, hasKey("rel"));
+                assertThat("HATEOAS/HAL link href is missing", link, hasKey("href"));
+                assertThat("HATEOAS/HAL link type is missing", link, hasKey("type"));
 
                 // Validates the format of the link
+                assertThat("HATEOAS/HAL link " + link + " has an invalid URL", link.get("href"), matchesPattern("https?://.+/api/person/v1.*"));
+            }
+        }
 
         // Validates pagination attributes
-
-        // Verifies the page number
-
-        // Verifies the page size
+        Map<String, Object> page = (Map<String, Object>) parsedYaml.get("page");
+        assertThat("Page number is incorrect", page.get("number"), is(3));
+        assertThat("Page size is incorrect", page.get("size"), is(12));
 
         // Validates the total number of elements and pages
+        Integer totalElements = Integer.parseInt(page.get("totalElements").toString());
+        Integer totalPages = Integer.parseInt(page.get("totalPages").toString());
 
-        // Checks if total elements are present and valid
-
-        // Checks if total pages are present and valid
+        assertTrue("totalElements should be greater than 0", totalElements > 0);
+        assertTrue("totalPages should be greater than 0", totalPages > 0);
 
         // Validates the navigation links of the page
+        List<Map<String, String>> pageLinks = (List<Map<String, String>>) parsedYaml.get("links");
+        for (Map<String, String> pageLink : pageLinks) {
 
-                // Checks if the page link contains the href attribute
+            // Checks if the page link contains the href attribute
+            assertThat("HATEOAS/HAL page link href is missing", pageLink, hasKey("href"));
 
-                // Validates the format of the page link URL
-
+            // Validates the format of the page link URL
+            assertThat("HATEOAS/HAL page link " + pageLink + " has an invalid URL", pageLink.get("href"), matchesPattern("https?://.+/api/person/v1.*"));
+        }
     }
 
     private void mockPerson() {
