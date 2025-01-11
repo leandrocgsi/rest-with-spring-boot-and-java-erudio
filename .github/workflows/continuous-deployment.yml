@@ -18,10 +18,10 @@ jobs:
         password: ${{ secrets.DOCKER_ACCESS_TOKEN}}
 
     - name: Setup Java 21
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v2
       with:
         java-version: '21'
-        distribution: 'temurin'
+        distribution: 'adopt'
         cache: maven
 
     - name: Build Application .jar
