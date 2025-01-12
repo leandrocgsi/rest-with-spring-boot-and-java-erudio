@@ -13,7 +13,7 @@ public class OpenApiConfig {
     OpenAPI customOpenAPI(){
         return new OpenAPI()
             .info(new Info()
-                .title("REST API's RESTful from 0 with Java, Spring Boot, Kubernetes and Docker")
+                .title("REST API's RESTful from 0 with Java, Spring Boot, Kubernetes and Docker - Foo Bar")
                     .version("v1")
                     .description("REST API's RESTful from 0 with Java, Spring Boot, Kubernetes and Docker")
                     .termsOfService("https://pub.erudio.com.br/meus-cursos")
