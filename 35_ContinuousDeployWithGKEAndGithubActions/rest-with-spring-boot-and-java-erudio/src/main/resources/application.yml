@@ -1,0 +1,57 @@
+server:
+  port: 8080
+cors:
+  originPatterns: http://localhost:8080,http://localhost:3000,https://www.erudio.com.br
+file:
+  upload-dir: /Code/UploadDir
+security:
+  jwt:
+    token:
+      secret-key: 53cr37
+      expire-lenght: 3600000
+email:
+  subject: "Default Subject"
+  message: "Default Message"
+spring:
+  application:
+    name: rest-with-spring-boot-and-java-erudio
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${JDBC_URL}
+    #url: jdbc:mysql://GCP_SQL_IP/rest_with_spring_boot_erudio?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+    show-sql: false
+    open-in-view: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enabled: true
+      mail.smtp.starttls.required: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215 MB
+logging:
+  level:
+    root: INFO
+    # net.sf.jasperreports.engine.*: TRACE
+    # root: WARN
+    # br.com.erudio: DEBUG
+spring-doc:
+  paths-to-match:
+    - /auth/**
+    - /api/**/v1/**
+  swagger-ui:
+    use-root-path: true
