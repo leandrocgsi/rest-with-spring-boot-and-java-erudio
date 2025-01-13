@@ -18,6 +18,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: ${JDBC_URL}
+    #url: jdbc:mysql://GCP_SQL_IP/rest_with_spring_boot_erudio?useTimezone=true&serverTimezone=UTC
     username: root
     password: admin123
   jpa:
