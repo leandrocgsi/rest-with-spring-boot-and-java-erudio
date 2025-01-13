@@ -33,11 +33,11 @@ jobs:
         cache: maven
 
     - name: Build Application .jar
-      working-directory: ./31_DeployToGoogleCloudPlatform/rest-with-spring-boot-and-java-erudio
+      working-directory: ./32_CIandCDwithGCP/rest-with-spring-boot-and-java-erudio
       run: mvn clean package
 
     - name: Docker Compose Build
-      working-directory: ./31_DeployToGoogleCloudPlatform
+      working-directory: ./32_CIandCDwithGCP
       run: docker compose build
 
     - name: Push to Google Cloud Artifact Registry
