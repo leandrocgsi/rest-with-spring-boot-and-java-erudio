@@ -50,7 +50,7 @@ jobs:
 
     - name: Deploy to Google Cloud Run
       run: |
-        google run deploy rest-with-spring-boot-erudio \
+        gcloud run deploy rest-with-spring-boot-erudio \
           --image ${{ secrets.REGISTRY_INFO }}/rest-with-spring-boot-erudio:latest \
           --region us-central1 \
           --platform managed \
