@@ -65,31 +65,17 @@ Este é o repositório dos códigos fonte desenvolvidos no curso [Formação Spr
 
 [![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/trello.png?raw=true "Trello: Gestão Otimizada de Equipes e Projetos Pessoais")](https://www.udemy.com/course/trello-gestao-otimizada-de-equipes-e-projetos-pessoais/?couponCode=GTHB_FLASH_SALE2021)
 
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/remote_scrum.png?raw=true "Agile e Scrum para Times em Home Office com Trello")](https://www.udemy.com/course/agile-e-scrum-para-times-remotos-home-office-com-trello/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/remote_kanban.png?raw=true "Agile e Kanban para Times em Home Office com Trello")](https://www.udemy.com/course/agile-e-kanban-para-times-remotos-home-office-com-trello/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/spotify.png?raw=true "Spotify Engineering Culture Desmistificado")](https://www.udemy.com/course/spotify-engineering-culture-desmistificado/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/waterfall.png?raw=true "Do Waterfall ao Scrum: Acerte na Mudança do Modelo de Gestão")](https://www.udemy.com/course/do-waterfall-ao-scrum-acerte-na-mudanca-do-modelo-de-gestao/?couponCode=GTHB_FLASH_SALE2022)
-
-## In English
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/rest_apis_restful_from_0_to_aws_with_spring_boot_and_docker.png?raw=true "REST API's RESTFul from 0 to AWS with Spring Boot and Docker")](https://www.udemy.com/course/rest-apis-restful-from-0-to-aws-with-spring-boot-and-docker/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/docker_to_amazon_aws_deploy_apps_java_and_dot_net_with_travis_ci.png?raw=true "Docker to Amazon AWS Deploy Java & .NET Apps with Travis CI")](https://www.udemy.com/course/docker-to-amazon-aws-deploy-java-net-apps-with-travis-ci/?couponCode=GTHB_FLASH_SALE2021)
-
 # Prévia Gratuita da versão anterior do curso
 
 [![Prévia Gratuita](https://raw.githubusercontent.com/leandrocgsi/RestWithSpringBootUdemy/master/Images/cover/java_cover.png)](https://www.youtube.com/watch?v=fQAOaMqu0ho)
 
-## [Configuração do Ambiente de Desenvolvimento Spring Boot e Java no Windows](https://www.youtube.com/watch?v=sdY-N6nnyaE)
+## [Como Configurar Ambiente de DEV Spring Boot no Windows: Java, Maven, IntelliJ e MySQL Guia Completo](https://www.youtube.com/watch?v=M-0HxNoUeNE)
 
-[![Montando um Ambiente de Desenvolvimento Spring Boot e Java no Windows: Minicurso Gratuito Completo!](https://raw.githubusercontent.com/leandrocgsi/RestWithSpringBootUdemy/master/Images/cover/windows.png)](https://www.youtube.com/watch?v=sdY-N6nnyaE)
+[![Montando um Ambiente de Desenvolvimento Spring Boot e Java no Windows: Minicurso Gratuito Completo!](https://img.youtube.com/vi/M-0HxNoUeNE/maxresdefault.jpg)](https://www.youtube.com/watch?v=M-0HxNoUeNE)
 
-## [Configuração do Ambiente de Desenvolvimento Spring Boot e Java no Linux (Ubuntu/Debian)](https://www.youtube.com/watch?v=dEszOKOR4Nk)
+## [Como Configurar Ambiente de DEV Spring Boot no Linux: Java, Maven, IntelliJ e MySQL Guia Completo](https://www.youtube.com/watch?v=Wk5645fHrVU)
 
-[![Montando um Ambiente de Desenvolvimento Spring Boot e Java no Linux: Minicurso Gratuito Completo!](https://raw.githubusercontent.com/leandrocgsi/RestWithSpringBootUdemy/master/Images/cover/linux.png)](https://www.youtube.com/watch?v=dEszOKOR4Nk)
+[![Montando um Ambiente de Desenvolvimento Spring Boot e Java no Linux: Minicurso Gratuito Completo!](https://img.youtube.com/vi/Wk5645fHrVU/maxresdefault.jpg)](https://www.youtube.com/watch?v=Wk5645fHrVU)
 
 # Sobre REST
 
