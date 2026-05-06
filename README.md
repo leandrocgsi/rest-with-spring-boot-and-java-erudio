@@ -49,22 +49,6 @@ Este é o repositório dos códigos fonte desenvolvidos no curso [Formação Spr
 
 [![Image](https://raw.githubusercontent.com/leandrocgsi/blog-images/refs/heads/main/formacoes_github/30-jasper.png?raw=true "Crie Relatórios Profissionais com JasperReports, Java, Spring Boot e JasperSoft Studio")](https://pub.erudio.com.br/crie-relatorios-profissionais-com-jasperreports-java-spring-boot-e-jaspersoft-studio?utm_source=github&utm_medium=organic&utm_campaign=readme&utm_content=repo)
 
----
-
-<!-- Cursos sem correspondência no novo padrão -->
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/microservices_.net6.png?raw=true "Arquitetura de Microsserviços do 0 com ASP.NET, .NET 6 e C#")](https://www.udemy.com/course/microservices-do-0-a-gcp-com-dot-net-6-kubernetes-e-docker/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/react_kotlin.png?raw=true "React JS consumindo REST API RESTful em Spring Boot e Kotlin")](https://www.udemy.com/course/aprenda-consumir-apis-restful-em-spring-boot-kotlin-com-react-js-axios/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://raw.githubusercontent.com/leandrocgsi/RestWithSpringBootUdemy/master/Images/react_java.png "React JS consumindo REST API RESTful em Spring Boot Java 16")](https://www.udemy.com/course/aprenda-consumir-apis-restful-em-spring-boot-java-com-react-js-axios/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/react_.net6.png?raw=true "React JS consumindo REST API RESTful em ASP.NET Core .NET 6")](https://www.udemy.com/course/aprenda-consumir-apis-restful-em-asp-dot-net-core-6-com-react-js-axios/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/agile.png?raw=true "Agile desmistificado com Scrum, XP, Kanban, Spotify e Trello")](https://www.udemy.com/course/agile-no-mundo-real-scrum-xp-kanban-e-spotify-desmistificados/?couponCode=GTHB_FLASH_SALE2021)
-
-[![Image](https://github.com/leandrocgsi/RestWithSpringBootUdemy/blob/master/Images/trello.png?raw=true "Trello: Gestão Otimizada de Equipes e Projetos Pessoais")](https://www.udemy.com/course/trello-gestao-otimizada-de-equipes-e-projetos-pessoais/?couponCode=GTHB_FLASH_SALE2021)
-
 # Prévia Gratuita da versão anterior do curso
 
 [![Prévia Gratuita](https://raw.githubusercontent.com/leandrocgsi/RestWithSpringBootUdemy/master/Images/cover/java_cover.png)](https://www.youtube.com/watch?v=fQAOaMqu0ho)
